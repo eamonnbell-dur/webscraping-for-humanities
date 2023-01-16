@@ -4,5 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: intro-to-web-technologies
 - file: bs4-basics
