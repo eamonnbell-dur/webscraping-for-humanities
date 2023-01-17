@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>bs4 - Further Topics &#8212; Web Scraping for the Humanities</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="bs4 Basics" href="bs4-basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Web Scraping for the Humanities</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Web Scraping With Python For The Humanities
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bs4-basics.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bs4
+    </span>
+   </code>
+   Basics
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bs4
+    </span>
+   </code>
+   - Further Topics
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/eamonnbell-dur/webscraping-for-humanities/master?urlpath=tree/bs4-further-topics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/eamonnbell-dur/webscraping-for-humanities/blob/master/bs4-further-topics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/eamonnbell-dur/webscraping-for-humanities"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/eamonnbell-dur/webscraping-for-humanities/issues/new?title=Issue%20on%20page%20%2Fbs4-further-topics.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/bs4-further-topics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#return-the-titles-of-all-the-albums-listed-on-this-page">
+     Return the titles of all the albums listed on this page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#return-a-list-of-links-to-the-album-cover-images-for-each-of-the-albums-listed-on-this-page">
+     Return a list of links to the album cover images for each of the albums listed on this page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#return-the-link-to-the-next-page-that-contains-the-next-20-results">
+     Return the link to the next page that contains the next 20 results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expanding-the-scope-of-the-scraping-activity">
+   Expanding the scope of the scraping activity
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>bs4 - Further Topics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objective">
+   Objective
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#return-the-titles-of-all-the-albums-listed-on-this-page">
+     Return the titles of all the albums listed on this page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#return-a-list-of-links-to-the-album-cover-images-for-each-of-the-albums-listed-on-this-page">
+     Return a list of links to the album cover images for each of the albums listed on this page
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#return-the-link-to-the-next-page-that-contains-the-next-20-results">
+     Return the link to the next page that contains the next 20 results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expanding-the-scope-of-the-scraping-activity">
+   Expanding the scope of the scraping activity
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="bs4-further-topics">
+<h1><code class="docutils literal notranslate"><span class="pre">bs4</span></code> - Further Topics<a class="headerlink" href="#bs4-further-topics" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">bs4</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="objective">
+<h2>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Visit the page at this URL in your browser - <a class="reference external" href="https://www.discogs.com/lists/277616">https://www.discogs.com/lists/277616</a></p></li>
+<li><p>Using Python, download the HTML document that corresponds to this page.</p></li>
+<li><p>Write some Python code using <code class="docutils literal notranslate"><span class="pre">bs4</span></code> to</p>
+<ul class="simple">
+<li><p>Return the titles of all the albums listed on this page</p></li>
+<li><p>Return a list of links to the album cover images for each of the albums listed on this page (To do this, you need to get the src= attribute of the relevant <img> elements)</p></li>
+<li><p>Return the link to the next page that contains the next 25 results</p></li>
+</ul>
+</li>
+<li><p>Use Python to download the next page of the list, and repeat, building up a list of records (stored as <code class="docutils literal notranslate"><span class="pre">dicts</span></code>, if you like) for each album in the list</p></li>
+</ol>
+<p>We now move to using Python to request remote resources (e.g. HTML documents hosted by Web servers) so that we can parse them using <code class="docutils literal notranslate"><span class="pre">bs4</span></code> for the purposes of Web scraping. To do this, we will use the third-party <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, because it provides a relatively straightforward interface. We pass the URI of the remote resource as an argument to <code class="docutils literal notranslate"><span class="pre">requests.get</span></code> and it returns a HTTP response object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.discogs.com/lists/277616&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When I run this code on my local machine, I recieve a HTTP response with status code 403. HTTP specifies a list of numeric status codes; you are probably familiar with the HTTP response code 404 - Not Found, a response code indicating that the request was not fulfilled (we know this is an error as it fits the format 4xx). 403 - Forbidden is a response indicating that the server is not willing to fulfill the request as it is has been made by the client.</p>
+<p>As HTTP is a plain-text protocol, we can inspect the exact request that was fired off when we used <code class="docutils literal notranslate"><span class="pre">requests.get</span></code>, which is stored in the <code class="docutils literal notranslate"><span class="pre">resp</span></code> variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">reveal_HTTP</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="c1"># https://stackoverflow.com/a/23816211</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="se">\r\n</span><span class="si">{}</span><span class="se">\r\n\r\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+        <span class="s1">&#39;</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">,</span>
+    <span class="p">))</span>
+
+<span class="n">reveal_HTTP</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">request</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GET https://www.discogs.com/lists/277616
+User-Agent: python-requests/2.28.1
+Accept-Encoding: gzip, deflate, br
+Accept: */*
+Connection: keep-alive
+
+None
+</pre></div>
+</div>
+</div>
+</div>
+<p>When scraping in any context, it is important to ensure that you “politely” request resources from remote servers, meaning that you stick to a set of principles that makes it straightforward for you and the remote server administrator to identify unintended behavior on the part of your scraping code. The aspects of politness we will implement today include:</p>
+<ol class="simple">
+<li><p>Identify your scraper (and, optionally, yourself) in the User-Agent string, which is part of the “header” of the HTTP request</p></li>
+<li><p>Apply ratelimiting to limit the number (and/or speed) of HTTP requests you make of a remote server</p></li>
+<li><p>Respect the HTTP status code returned by the remote server, and adapt the behaviour of your code accordingly</p></li>
+</ol>
+<p>Looking at the User-Agent string provided with the request that failed, we might try to provide more detailed information about our activity and try again.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Research Scraper v0.1 - contact &lt;eamonn.bell@durham.ac.uk&gt;&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.discogs.com/lists/277616&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Interestingly enough, providing this information caused the server to behave differently, since we now see:</p>
+<ol class="simple">
+<li><p>That the HTTP response code has changed from 403 to 200 (meaning a document has been succesfully retrieved from the remote server)</p></li>
+<li><p>That the response from the server contains HTML, which we are now ready to parse with the help of <code class="docutils literal notranslate"><span class="pre">bs4</span></code>. (We just look at the first 1000 characters).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resp</span><span class="o">.</span><span class="n">content</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\n\n\n&lt;!DOCTYPE html&gt;\n&lt;html\n    class=&quot;is_not_mobile needs_reduced_ui &quot;\n    lang=&quot;en&quot;\n    xmlns:og=&quot;http://opengraphprotocol.org/schema/&quot;\n    xmlns:fb=&quot;http://www.facebook.com/2008/fbml&quot;\n&gt;\n    &lt;head&gt;\n        &lt;meta charset=&quot;utf-8&quot;&gt;\n        &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;\n        &lt;meta http-equiv=&quot;content-language&quot; content=&quot;en&quot;&gt;\n        &lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot; /&gt;\n        &lt;meta http-equiv=&quot;expires&quot; content=&quot;-1&quot; /&gt;\n\n        &lt;!-- OT will rewrite convert these to javascript and update our consent module accordingly --&gt;\n        &lt;script type=&quot;text/plain&quot; class=&quot;optanon-category-C0002&quot;&gt;\n            window.consent.resolveGroup(window.consent.PERFORMANCE_GROUP)\n        &lt;/script&gt;\n        &lt;script type=&quot;text/plain&quot; class=&quot;optanon-category-C0003&quot;&gt;\n            window.consent.resolveGroup(window.consent.FUNCTIONALITY_GROUP)\n        &lt;/script&gt;\n        &lt;script type=&quot;text/plain&quot; class=&quot;optanon-category-C0004&quot;&gt;\n            window.consent.resolveGroup(window.consent.TA&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, we can assign this string to a useful name (<code class="docutils literal notranslate"><span class="pre">html_doc</span></code>) and start manipulating it with the help of <code class="docutils literal notranslate"><span class="pre">bs4</span></code>, as in the last set of examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html_doc</span> <span class="o">=</span> <span class="n">resp</span><span class="o">.</span><span class="n">content</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s break down the task into its constitutent parts.</p>
+<p>In order to complete this task, you are going to need to inspect or otherwise get acquainted with the structure of the web page that you are interested in retrieving information from. The solution will be hidden in the web presentation of the notebook materials; I reccomend that you attempt this task on your own before consulting the solutions. As I have said before, there are multiple ways of achieving the same result in <code class="docutils literal notranslate"><span class="pre">bs4</span></code>, so your solution need not be identical.</p>
+<section id="return-the-titles-of-all-the-albums-listed-on-this-page">
+<h3>Return the titles of all the albums listed on this page<a class="headerlink" href="#return-the-titles-of-all-the-albums-listed-on-this-page" title="Permalink to this headline">#</a></h3>
+<p><strong>Hint</strong>: Consult the documentation for the HTML element called <code class="docutils literal notranslate"><span class="pre">&lt;ol&gt;</span></code> (= <strong>o</strong>rdered <strong>l</strong>ist): <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol</a>.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ol_albums</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;listitems&#39;</span><span class="p">)</span>
+<span class="n">li_albums</span> <span class="o">=</span> <span class="n">ol_albums</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="n">album_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">li_albums</span><span class="p">]</span>
+<span class="n">album_titles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Maroon 5 - Songs About Jane&#39;,
+ &#39;Hawkwind - Space Ritual&#39;,
+ &#39;Cave Gaze Wagon - Wonderful Wagon World&#39;,
+ &#39;The Pax Cecilia - Nouveau (A Theatre Of The Air)&#39;,
+ &#39;Various - Mythical Tapes Vol. I&#39;,
+ &#39;Yes - Yessongs&#39;,
+ &quot;Marc Hamilton - Disque D&#39;Or&quot;,
+ &#39;Marc Hamilton - Viens&#39;,
+ &#39;Татьяна Гринденко*, Юрий Смирнов* - Ragtimes = Рэг-Таймы&#39;,
+ &#39;バニラ・ファッジ* = The Vanilla Fudge* - キープ・ミー・ハンギング・オン = You Keep Me Hanging On&#39;,
+ &#39;The Lovethugs - Playground Instructors&#39;,
+ &quot;Various - Blanck Mass Presents The Strange Colour Of Your Body&#39;s Tears Re-Score&quot;,
+ &#39;Jing Chi, Vinnie Colaiuta, Robben Ford, Jimmy Haslip - Jing Chi&#39;,
+ &#39;Rock Shop - Mr. Lee\&#39;s &quot;Swing\&#39;n Affair&quot; Presents&#39;,
+ &#39;Blue Mink - Melting Pot&#39;,
+ &#39;Ars Nova (3) - Pavan For My Lady&#39;,
+ &#39;Blues Pills - Blues Pills&#39;,
+ &#39;The Beatles - Lady Madonna&#39;,
+ &quot;Sleep - Reunion At All Tomorrow&#39;s Parties&quot;,
+ &#39;Reel People Feat. Darien - Sure&#39;,
+ &#39;Grim Fandango - In The Rough&#39;,
+ &#39;Paul Mauriat And His Orchestra - Let The Sunshine In / Midnight Cowboy / And Other Goodies&#39;,
+ &#39;The Sea Urchins - A Morning Odyssey&#39;,
+ &#39;Various - Re-Evolution: FDM Sings The Hollies&#39;,
+ &#39;Josephine Foster - Hazel Eyes, I Will Lead You&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="return-a-list-of-links-to-the-album-cover-images-for-each-of-the-albums-listed-on-this-page">
+<h3>Return a list of links to the album cover images for each of the albums listed on this page<a class="headerlink" href="#return-a-list-of-links-to-the-album-cover-images-for-each-of-the-albums-listed-on-this-page" title="Permalink to this headline">#</a></h3>
+<p>NB: To do this, you need to get the <code class="docutils literal notranslate"><span class="pre">src</span></code> attribute of the relevant <code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> elements.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ol_albums</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;listitems&#39;</span><span class="p">)</span>
+<span class="n">li_albums</span> <span class="o">=</span> <span class="n">ol_albums</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="n">cover_image_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)[</span><span class="s1">&#39;src&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">li_albums</span><span class="p">]</span>
+<span class="n">cover_image_links</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;https://i.discogs.com/9S5gwiP7Jr5Emfdrl8ERBHxUAc4p-mPHU8GMbGbGees/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNTEz/OC0xMTEzMDM2MzE1/LmpwZw.jpeg&#39;,
+ &#39;https://i.discogs.com/wMzYu3lEPnNPB8Ord6SyhoA6eZSvgu8ZQMSxRxO34Dw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDQw/Ni0xNjA4MTM0NTcx/LTE0NzkuanBlZw.jpeg&#39;,
+ &#39;https://i.discogs.com/wyMbzqKbQSMjcdkWowSrSRX7Pj_m5phhSxw5ZFe3oE4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxNTk3/OTctMTQ1NjI1MjI2/Ni00MDg1LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/tfzq-AQIFomVcMDxegx4a8pVCgjn9_2CdDROpDALo-M/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMzIy/OTctMTM5MTI5ODMw/Ni03ODg4LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/WU-cIgUI_-3-1vFxM06SgUO4oykhn_i8XgV39Ss0A8Y/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ4ODA1/MTUtMTM3ODc0NDI0/Mi0zNzg1LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/Ifdi30FMqrHGtfnE2CkzYqONmmN0YdRPgcNND2KP6Wg/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc0MzYx/My0xNDQ4MjA2NTU3/LTQ4NjUuanBlZw.jpeg&#39;,
+ &#39;https://i.discogs.com/GIqSPWHd803G_Q6maD6Yvtd0Imgoem5ylfWhZNnK6TY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxODM1/NDUtMTQ4MTExNzE0/NS00MjUwLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/fu6BkMm-PdvYUIu4tlcWN97eBaO0gTTTPzhyf3AgIJc/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY4NTEz/NjAtMTQyNzk4MzMy/OC00MTg3LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/jW-sU9hijnGoRzsWUTTfsVPXcIo_3UzL8bjsHNYGzVs/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNDY1/OTk5LTE2NTQzNjU2/NjItOTQyNC5qcGVn.jpeg&#39;,
+ &#39;https://i.discogs.com/Yix2DeX7xATDHLgyIDX0kfTvbyix22IZ1mJldz5fhO4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc3MTk2/ODItMTQ3MzE0Nzgw/OS04NTQzLnBuZw.jpeg&#39;,
+ &#39;https://i.discogs.com/P5pXiTahIieygcpD_H-vBzo2ft5b15MY-zlwezOxYt0/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMDI3/MzctMTQ1NzA1ODk1/Ni0zOTMzLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/PrlqzNQYvr3xbri7MH_pROstAHyp2vg6LSQsZRo4xAU/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyNTE1/OTctMTQzNzIwMDQy/NC0yMjE3LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/xyYBiZR__1HkJURkzLL70fnMe1xYVvElqDSDvarIsm8/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2Njc2/ODItMTQyNDIxNTQ5/OS05Nzk0LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/4XVsifu2kpFu_nRCCrfsh9XtWPmtelABo2-5lBtlkrE/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMTQz/MDMtMTQ1NzI3OTEz/Ni0xMzQ0LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/VBSWqKSL0T6Bre2rMjQaovN_uEMjii0AoLJ_WYO5ejQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ3MTI2/NDUtMTU4NjIyMDEz/NC03NzMzLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/lgp0AuyykuN1KzQ4xgLHsR8J14xlJ4WFF7xhipEmD70/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNDQy/NDEtMTQ1Nzg0Nzgy/MC00ODY1LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/-aqQ84mnWf9yyEkvLIDK-TBnAmF2o0wMvX9x1RiJqUE/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU5MTE4/MTItMTQxMDUwOTM5/My0xNjk2LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/XFYQKYDBy0iocQokZuF7IM30msiuc1TZ0jUkTnimHnI/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNTA1/NzktMTQ1Nzk2NjM2/Ny03MDcyLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/z4eJHngDwGIPyW0vkhvorI23aHz15_PsDQgbj6MQQmQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUwMTc1/OTQtMTM4MjI1NjI3/My01NzAzLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/7OuCn186O3qqmCDHAe69E-ZgOUVQuHph6K4Fu-E8aaA/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTczODA0/NjEtMTQ0MDI1MTcz/Ni04MTA3LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/Ra1prFJ89i-XB1C50kMDTsMoOhPnGr52K2WsR9HFPmU/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3NzE5/MzgtMTQwMjIzMDM3/Ny0yNjcyLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/N_eBaAMU8W-WeaKeiku1Kayn6du0VMtnHVjWMe_1Xak/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MjUw/NjgtMTM1Nzk1MTA0/OC0yNjUzLmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/mGrVS9S4ckiztRGAagYRXN6ZePsU1o4WZ7mkvFDI0vY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk5NDA5/Ny0xMTg2MjE1NjM1/LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/S_iTIJYinLqXOz8BFx5CSGV9P1FcxvZhz2HWascMMNw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNjIw/NjctMTM2NDc0MTM2/OC04MTM4LmpwZWc.jpeg&#39;,
+ &#39;https://i.discogs.com/2cQNQSUfjJyD_d78We5T3XHbl_GzvuHxwhfmegDK3YM/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNDg4/OTktMTI5MjMyMDUx/Ny5qcGVn.jpeg&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="return-the-link-to-the-next-page-that-contains-the-next-20-results">
+<h3>Return the link to the next page that contains the next 20 results<a class="headerlink" href="#return-the-link-to-the-next-page-that-contains-the-next-20-results" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nav</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;nav&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;aria-label&#39;</span><span class="p">:</span><span class="s1">&#39;Pagination&#39;</span><span class="p">})</span>
+<span class="n">link</span> <span class="o">=</span> <span class="n">nav</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;pagination_next&#39;</span><span class="p">)</span>
+<span class="n">link_destination</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+
+<span class="c1"># The link returned was a relative link, so to make it usable, we need to </span>
+<span class="c1"># construct an absolute link using our knowledge of the page that we are currently on</span>
+<span class="n">absolute_link</span> <span class="o">=</span> <span class="s1">&#39;https://www.discogs.com&#39;</span> <span class="o">+</span> <span class="n">link_destination</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="expanding-the-scope-of-the-scraping-activity">
+<h2>Expanding the scope of the scraping activity<a class="headerlink" href="#expanding-the-scope-of-the-scraping-activity" title="Permalink to this headline">#</a></h2>
+<p>First, let’s combine everything we’ve got so far in to a helpful function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">scrape_album_info</span><span class="p">(</span><span class="n">html_doc</span><span class="p">):</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html_doc</span><span class="p">)</span>
+
+    <span class="n">ol_albums</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;listitems&#39;</span><span class="p">)</span>
+    <span class="n">li_albums</span> <span class="o">=</span> <span class="n">ol_albums</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+
+    <span class="n">album_titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">li_albums</span><span class="p">]</span>
+    <span class="n">cover_image_links</span> <span class="o">=</span> <span class="p">[</span><span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)[</span><span class="s1">&#39;src&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">li_albums</span><span class="p">]</span>
+
+    <span class="n">nav</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;nav&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;aria-label&#39;</span><span class="p">:</span><span class="s1">&#39;Pagination&#39;</span><span class="p">})</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="n">nav</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;pagination_next&#39;</span><span class="p">)</span>
+    <span class="n">link_destination</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+    <span class="n">absolute_next_link</span> <span class="o">=</span> <span class="s1">&#39;https://www.discogs.com&#39;</span> <span class="o">+</span> <span class="n">link_destination</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;album_titles&#39;</span> <span class="p">:</span> <span class="n">album_titles</span><span class="p">,</span>
+        <span class="s1">&#39;cover_image_links&#39;</span> <span class="p">:</span> <span class="n">cover_image_links</span><span class="p">,</span>
+        <span class="s1">&#39;absolute_next_link&#39;</span> <span class="p">:</span> <span class="n">absolute_next_link</span>
+    <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Double-check it works as expected:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">album_info</span> <span class="o">=</span> <span class="n">scrape_album_info</span><span class="p">(</span><span class="n">html_doc</span><span class="p">)</span>
+<span class="n">album_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;album_titles&#39;: [&#39;Maroon 5 - Songs About Jane&#39;,
+  &#39;Hawkwind - Space Ritual&#39;,
+  &#39;Cave Gaze Wagon - Wonderful Wagon World&#39;,
+  &#39;The Pax Cecilia - Nouveau (A Theatre Of The Air)&#39;,
+  &#39;Various - Mythical Tapes Vol. I&#39;,
+  &#39;Yes - Yessongs&#39;,
+  &quot;Marc Hamilton - Disque D&#39;Or&quot;,
+  &#39;Marc Hamilton - Viens&#39;,
+  &#39;Татьяна Гринденко*, Юрий Смирнов* - Ragtimes = Рэг-Таймы&#39;,
+  &#39;バニラ・ファッジ* = The Vanilla Fudge* - キープ・ミー・ハンギング・オン = You Keep Me Hanging On&#39;,
+  &#39;The Lovethugs - Playground Instructors&#39;,
+  &quot;Various - Blanck Mass Presents The Strange Colour Of Your Body&#39;s Tears Re-Score&quot;,
+  &#39;Jing Chi, Vinnie Colaiuta, Robben Ford, Jimmy Haslip - Jing Chi&#39;,
+  &#39;Rock Shop - Mr. Lee\&#39;s &quot;Swing\&#39;n Affair&quot; Presents&#39;,
+  &#39;Blue Mink - Melting Pot&#39;,
+  &#39;Ars Nova (3) - Pavan For My Lady&#39;,
+  &#39;Blues Pills - Blues Pills&#39;,
+  &#39;The Beatles - Lady Madonna&#39;,
+  &quot;Sleep - Reunion At All Tomorrow&#39;s Parties&quot;,
+  &#39;Reel People Feat. Darien - Sure&#39;,
+  &#39;Grim Fandango - In The Rough&#39;,
+  &#39;Paul Mauriat And His Orchestra - Let The Sunshine In / Midnight Cowboy / And Other Goodies&#39;,
+  &#39;The Sea Urchins - A Morning Odyssey&#39;,
+  &#39;Various - Re-Evolution: FDM Sings The Hollies&#39;,
+  &#39;Josephine Foster - Hazel Eyes, I Will Lead You&#39;],
+ &#39;cover_image_links&#39;: [&#39;https://i.discogs.com/9S5gwiP7Jr5Emfdrl8ERBHxUAc4p-mPHU8GMbGbGees/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNTEz/OC0xMTEzMDM2MzE1/LmpwZw.jpeg&#39;,
+  &#39;https://i.discogs.com/wMzYu3lEPnNPB8Ord6SyhoA6eZSvgu8ZQMSxRxO34Dw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDQw/Ni0xNjA4MTM0NTcx/LTE0NzkuanBlZw.jpeg&#39;,
+  &#39;https://i.discogs.com/wyMbzqKbQSMjcdkWowSrSRX7Pj_m5phhSxw5ZFe3oE4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxNTk3/OTctMTQ1NjI1MjI2/Ni00MDg1LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/tfzq-AQIFomVcMDxegx4a8pVCgjn9_2CdDROpDALo-M/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMzIy/OTctMTM5MTI5ODMw/Ni03ODg4LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/WU-cIgUI_-3-1vFxM06SgUO4oykhn_i8XgV39Ss0A8Y/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ4ODA1/MTUtMTM3ODc0NDI0/Mi0zNzg1LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/Ifdi30FMqrHGtfnE2CkzYqONmmN0YdRPgcNND2KP6Wg/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc0MzYx/My0xNDQ4MjA2NTU3/LTQ4NjUuanBlZw.jpeg&#39;,
+  &#39;https://i.discogs.com/GIqSPWHd803G_Q6maD6Yvtd0Imgoem5ylfWhZNnK6TY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxODM1/NDUtMTQ4MTExNzE0/NS00MjUwLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/fu6BkMm-PdvYUIu4tlcWN97eBaO0gTTTPzhyf3AgIJc/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY4NTEz/NjAtMTQyNzk4MzMy/OC00MTg3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/jW-sU9hijnGoRzsWUTTfsVPXcIo_3UzL8bjsHNYGzVs/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNDY1/OTk5LTE2NTQzNjU2/NjItOTQyNC5qcGVn.jpeg&#39;,
+  &#39;https://i.discogs.com/Yix2DeX7xATDHLgyIDX0kfTvbyix22IZ1mJldz5fhO4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc3MTk2/ODItMTQ3MzE0Nzgw/OS04NTQzLnBuZw.jpeg&#39;,
+  &#39;https://i.discogs.com/P5pXiTahIieygcpD_H-vBzo2ft5b15MY-zlwezOxYt0/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMDI3/MzctMTQ1NzA1ODk1/Ni0zOTMzLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/PrlqzNQYvr3xbri7MH_pROstAHyp2vg6LSQsZRo4xAU/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyNTE1/OTctMTQzNzIwMDQy/NC0yMjE3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/xyYBiZR__1HkJURkzLL70fnMe1xYVvElqDSDvarIsm8/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2Njc2/ODItMTQyNDIxNTQ5/OS05Nzk0LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/4XVsifu2kpFu_nRCCrfsh9XtWPmtelABo2-5lBtlkrE/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMTQz/MDMtMTQ1NzI3OTEz/Ni0xMzQ0LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/VBSWqKSL0T6Bre2rMjQaovN_uEMjii0AoLJ_WYO5ejQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ3MTI2/NDUtMTU4NjIyMDEz/NC03NzMzLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/lgp0AuyykuN1KzQ4xgLHsR8J14xlJ4WFF7xhipEmD70/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNDQy/NDEtMTQ1Nzg0Nzgy/MC00ODY1LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/-aqQ84mnWf9yyEkvLIDK-TBnAmF2o0wMvX9x1RiJqUE/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU5MTE4/MTItMTQxMDUwOTM5/My0xNjk2LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/XFYQKYDBy0iocQokZuF7IM30msiuc1TZ0jUkTnimHnI/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNTA1/NzktMTQ1Nzk2NjM2/Ny03MDcyLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/z4eJHngDwGIPyW0vkhvorI23aHz15_PsDQgbj6MQQmQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUwMTc1/OTQtMTM4MjI1NjI3/My01NzAzLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/7OuCn186O3qqmCDHAe69E-ZgOUVQuHph6K4Fu-E8aaA/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTczODA0/NjEtMTQ0MDI1MTcz/Ni04MTA3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/Ra1prFJ89i-XB1C50kMDTsMoOhPnGr52K2WsR9HFPmU/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3NzE5/MzgtMTQwMjIzMDM3/Ny0yNjcyLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/N_eBaAMU8W-WeaKeiku1Kayn6du0VMtnHVjWMe_1Xak/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MjUw/NjgtMTM1Nzk1MTA0/OC0yNjUzLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/mGrVS9S4ckiztRGAagYRXN6ZePsU1o4WZ7mkvFDI0vY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk5NDA5/Ny0xMTg2MjE1NjM1/LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/S_iTIJYinLqXOz8BFx5CSGV9P1FcxvZhz2HWascMMNw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNjIw/NjctMTM2NDc0MTM2/OC04MTM4LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/2cQNQSUfjJyD_d78We5T3XHbl_GzvuHxwhfmegDK3YM/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNDg4/OTktMTI5MjMyMDUx/Ny5qcGVn.jpeg&#39;],
+ &#39;absolute_next_link&#39;: &#39;https://www.discogs.com/lists/277616?page=2&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The value of identifying the link to the next page of results on the site comes when we decide to then pass that URI back to <code class="docutils literal notranslate"><span class="pre">requests</span></code> and parse the next 25 results. Don’t forget to politely add our User-Agent string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">next_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">album_info</span><span class="p">[</span><span class="s1">&#39;absolute_next_link&#39;</span><span class="p">],</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sure enough, we have succesfully retrieved the next 25 items in the list!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">next_album_info</span> <span class="o">=</span> <span class="n">scrape_album_info</span><span class="p">(</span><span class="n">next_resp</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="n">next_album_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;album_titles&#39;: [&#39;Silver Rocket - Tesla&#39;,
+  &#39;The Moody Blues - Live At The Isle Of Wight Festival&#39;,
+  &#39;Lili Boniche - Trésors De La Chanson Judéo-Arabe&#39;,
+  &#39;Daddy Longlegs - Shifting Sands&#39;,
+  &#39;Fruupp - Seven Secrets&#39;,
+  &#39;Tony Mottola - A Latin Love-In&#39;,
+  &#39;Diana Ross &amp; The Supremes - Let The Sunshine In&#39;,
+  &#39;Various - Sol Y Sombra. La Primera Alta Comedia Musical De Siesta&#39;,
+  &#39;Γιάννης Γλέζος - Η Ελένη Του Μάη Και Άλλα Τραγούδια Του Γιάννη Γλέζου&#39;,
+  &quot;Various - Pop Power 60&#39;s et 70&#39;s Volume 2&quot;,
+  &#39;Gypsy (15) - Gypsy&#39;,
+  &#39;Kula Shaker - Strangefolk&#39;,
+  &#39;Claudio Villa - Antologia Della Canzone Italiana Vol. 3 1921-1928&#39;,
+  &#39;Mandala (22) - Mandala&#39;,
+  &quot;Black Trip - Goin&#39; Under&quot;,
+  &#39;Cream (2) - Reunion 3rd Night&#39;,
+  &#39;Rocco Careri &amp; Arturo Macchiavelli Feat. Eric King - Hot Butterfly (Remixed by Cool Million &amp; Rob Hardt)&#39;,
+  &#39;The Goastt* - Midnight Sun&#39;,
+  &quot;Alessandro Galluzzi, G. B. Martelli* - Tu Che M&#39;hai Preso Il Cuore / Fox Della Luna&quot;,
+  &#39;Sergio Pérez (2) - Desfile De Exitos&#39;,
+  &#39;Honey Radar - Ignore The Bells&#39;,
+  &quot;Marisa Leoni - Ricorderò / Non M&#39;Hai Detto&quot;,
+  &#39;The Claypool Lennon Delirium - Monolith Of Phobos&#39;,
+  &#39;Onda (6) &amp; Mächy - Familj Och Musiken EP &#39;,
+  &#39;The Stylers - 36 Great Hits From The Stylers&#39;],
+ &#39;cover_image_links&#39;: [&#39;https://i.discogs.com/TeHqHM2ORkH5o1b4qrAGX8pLpW5iztTH1495umBlX40/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM5MTI5/MzgtMTM0OTAxMDcy/My0xNDgyLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/3IXyxRYimXTqcPx4hYhPHjXecK4Pe_-R70b0plbHvpw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MjQ3/OTgtMTI5ODIwMjI0/Ni5qcGVn.jpeg&#39;,
+  &#39;https://i.discogs.com/uRXPHNKavLkT09IhbJk5HPFsdPyParJl_-P2Mx0yiio/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExMzA0/NzctMTYxNzY0Mzk0/My0yNTk3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/4Aunpkz-n2q1LVP1UBpdbYfGkIsQx_zDjXe9pCAJyyQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgzNzk0/ODEtMTQ3MTUzODEy/Ni01NjA2LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/dq5dr_o0HycpcM8RVclrQRfhNNNAGq-ouWa6rU_WUSI/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgzODkz/NzEtMTQ2MDY2NDM3/MS00OTg1LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/-aQOCVHAhEpT6Yom00U8IX6R9XwVSWCkRcToxCo4ECc/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgzOTU4/MzAtMTQ2MDgwNzQy/OS01MDg2LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/7D2Xev1POe9pau0vkpgBR5K7JrMxzGsNQapHyJjy6Pg/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcwMjI0/NzAtMTQzMTg4NDQ0/MS00MDI4LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/St7rPKrZpaH0s60kBlUK9RigHp9uRoEgd9WD0mzP8bI/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3MzIy/MzgtMTIzOTc5ODE1/OS5qcGVn.jpeg&#39;,
+  &#39;https://i.discogs.com/W2eKr7HhXwNX9yTjTOlp0hHiN9PbXpcOZTaYOE4zZ9E/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEzNTc1/MTY5LTE1NTY4MDI1/MTQtMjA3NS5qcGVn.jpeg&#39;,
+  &#39;https://i.discogs.com/0pLV6k0Wzn5qCXGfRAwk7zsZfavFZE-Y-ZGO40RcE8Y/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg0NTc0/MDctMTQ2MjAxNjky/Mi02NjEwLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/GTJoT6dQ9BR2xJ0yVNi-hzmfneqOjGoarK9AhD8n05w/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE3NDQw/MTMtMTM5NzE2Nzc5/OS00NDUwLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/eq6XuBDs1ivb-TX1n5NZXxUEz42zbygkwB6MNvF4b_U/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1MzIz/NDYtMTQ2MzUwMDQy/Ny05ODY3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/JfhMs9fsEwXlenF9X5zDTFgyO1iCH5FE6zaQU_JtP5g/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1MzUy/MjUtMTQ2MzU2MjU5/NC01MDQ3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/P2q12mwBZLzvL3b_m0sS4DLK-EEXjASzl4xDVnXoO34/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1NTIz/NzAtMTQ2MzkxMzY4/My03Nzg5LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/n99X_NIfF2F3RlKkdjIdH8_FCgeeAjnLeJj-hjxTlJM/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUwNzk1/MzctMTM4MzkzMjM5/Mi00Njc1LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/oV715Shcdj3QtHX7n7bytrGAwMxZfPuHTjUuAZfjJik/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMwNTk2/NzktMTMzMjAyNDcy/Mi5qcGVn.jpeg&#39;,
+  &#39;https://i.discogs.com/2wxqB0vE4YwseatTe3zo74AV6wk6PYH_7Yhp05CMM2Y/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg1ODM3/OTItMTQ2NDUyODUy/Ni0yMTc1LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/ph89oE1Y-u1Nyfudk2Ndd-CklS36nDrXUKaDl8tJeKc/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU2NTg1/ODMtMTM5OTE3Mjgx/MC0zMjUxLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/jnX-N6eN63yZlKNDxNaWW3NervFOcTCS3X6vOLqDsA8/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg2NDk2/MzctMTU4NzEzNjE4/OC02NDEyLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/YaNgBsoF-V4kbN69JV8NEv6C2G6VtcvHzA5u2MzkgVY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI5ODgx/NTgtMTMxMjMyNjkz/MS5qcGVn.jpeg&#39;,
+  &#39;https://i.discogs.com/6g15Q9Dq7agz0A7yrWod619IJ40iE8oQtIrAseI6sYw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg3NDk3/MjYtMTQ2Nzk0NzIw/OS04MzY3LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/66OFNor9_RNXWwdI5kGUz6yDKqoe9u0-zPUfr2bXkVA/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg3NzEx/NDctMTQ2ODQzODg0/Ni00NjE5LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/dPda1KR2PV3LIrm8pa6sVX4C895ItlTltclnD4Gha1w/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg2MDE2/MDUtMTQ2NDg5MTA3/My0yMjAzLmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/YNoYx-m2twtkKipg51ORkQtBzfj1hmV-kEeiuZVDd30/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTg2OTMy/MzQtMTQ2Njc0NTQy/Ni00MzI4LmpwZWc.jpeg&#39;,
+  &#39;https://i.discogs.com/av-sbThnvDc0nGWjk2BpuDucMu_M2R2gIxUe5edUyYw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTkwMDk5/NDctMTQ3MzIwMjkw/NS00ODMzLmpwZWc.jpeg&#39;],
+ &#39;absolute_next_link&#39;: &#39;https://www.discogs.com/lists/277616?page=3&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Of course, the purpose of working with Python here is to automate the work of paginating through all these HTML documents, so the final step is to use these tools to automate the process of following the chain of next page links, until either (a) the total number of expected items has been processed or (b) there is no valid response from the server. We can do this, including a short 1 second wait between requests, as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed_uri</span> <span class="o">=</span> <span class="s1">&#39;https://www.discogs.com/lists/277616&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span> 
+
+<span class="k">def</span> <span class="nf">run_scrape</span><span class="p">(</span><span class="n">seed_uri</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> 
+    <span class="n">to_get</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">seed_resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">seed_uri</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+    <span class="n">seed_album_info</span> <span class="o">=</span> <span class="n">scrape_album_info</span><span class="p">(</span><span class="n">seed_resp</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seed_album_info</span><span class="p">)</span>
+    <span class="n">to_get</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">seed_album_info</span><span class="p">[</span><span class="s1">&#39;absolute_next_link&#39;</span><span class="p">])</span>
+
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_get</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">to_get</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span> 
+
+        <span class="n">album_info</span> <span class="o">=</span> <span class="n">scrape_album_info</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">album_info</span><span class="p">)</span>
+        <span class="n">to_get</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">album_info</span><span class="p">[</span><span class="s1">&#39;absolute_next_link&#39;</span><span class="p">])</span>
+    
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scraped_data</span> <span class="o">=</span> <span class="n">run_scrape</span><span class="p">(</span><span class="n">seed_uri</span><span class="o">=</span><span class="s1">&#39;https://www.discogs.com/lists/277616&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "eamonnbell-dur/webscraping-for-humanities",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="bs4-basics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">bs4</span></code> Basics</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Eamonn Bell <eamonn.bell@durham.ac.uk><br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

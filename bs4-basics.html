@@ -52,6 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="bs4 - Further Topics" href="bs4-further-topics.html" />
     <link rel="prev" title="Welcome to Web Scraping With Python For The Humanities" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -121,6 +122,16 @@ const thebe_selector_output = ".output, .cell_output"
     </span>
    </code>
    Basics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bs4-further-topics.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     bs4
+    </span>
+   </code>
+   - Further Topics
   </a>
  </li>
 </ul>
@@ -497,6 +508,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p><strong>NB</strong> In fact, we can use many methods on the subdocuments returned from the result of a method. This means that almost all of the methods that the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object supports - such as <code class="docutils literal notranslate"><span class="pre">.find()</span></code> can be called on the outputs of these methods. This allows you to “zoom in” on the part of the HTML document that you care about. This will become especially important in the next set of examples.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">find_next_sibling()</span></code> method can be used to find sibling elements, which are those at the same level in the document tree. They will be returned in the order that they appear in the document at that level. In this example, it is in the paragraph ordered.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -851,6 +863,13 @@ My other page,Welcome to my other page,3
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Welcome to Web Scraping With Python For The Humanities</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="bs4-further-topics.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">bs4</span></code> - Further Topics</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
