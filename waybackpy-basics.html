@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Welcome to Web Scraping With Python For The Humanities &#8212; Web Scraping for the Humanities</title>
+    <title>waybackpy basics &#8212; Web Scraping for the Humanities</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="bs4 Basics" href="bs4-basics.html" />
+    <link rel="prev" title="scrapy basics" href="scrapy-basics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,13 +106,13 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
                     Welcome to Web Scraping With Python For The Humanities
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="bs4-basics.html">
    <code class="docutils literal notranslate">
@@ -143,8 +143,8 @@ const thebe_selector_output = ".output, .cell_output"
    basics
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="waybackpy-basics.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    <code class="docutils literal notranslate">
     <span class="pre">
      waybackpy
@@ -204,6 +204,71 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/eamonnbell-dur/webscraping-for-humanities/master?urlpath=tree/waybackpy-basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/eamonnbell-dur/webscraping-for-humanities/blob/master/waybackpy-basics.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -243,7 +308,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/eamonnbell-dur/webscraping-for-humanities/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/eamonnbell-dur/webscraping-for-humanities/issues/new?title=Issue%20on%20page%20%2Fwaybackpy-basics.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -271,7 +336,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/intro.md"
+        <a href="_sources/waybackpy-basics.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -282,7 +347,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.md</span>
+<span class="headerbtn__text-container">.ipynb</span>
 </a>
 
       </li>
@@ -320,7 +385,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Welcome to Web Scraping With Python For The Humanities</h1>
+                <h1>waybackpy basics</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -332,18 +397,9 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="welcome-to-web-scraping-with-python-for-the-humanities">
-<h1>Welcome to Web Scraping With Python For The Humanities<a class="headerlink" href="#welcome-to-web-scraping-with-python-for-the-humanities" title="Permalink to this headline">#</a></h1>
-<p>This is a set of resources to accompany the workshop being held on January 17 and January 24 2023.</p>
-<p>Please find the table of contents below:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="bs4-basics.html"><code class="docutils literal notranslate"><span class="pre">bs4</span></code> Basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bs4-further-topics.html"><code class="docutils literal notranslate"><span class="pre">bs4</span></code> Further Topics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="scrapy-basics.html"><code class="docutils literal notranslate"><span class="pre">scrapy</span></code> basics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="waybackpy-basics.html"><code class="docutils literal notranslate"><span class="pre">waybackpy</span></code> basics</a></li>
-</ul>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="waybackpy-basics">
+<h1><code class="docutils literal notranslate"><span class="pre">waybackpy</span></code> basics<a class="headerlink" href="#waybackpy-basics" title="Permalink to this headline">#</a></h1>
+<p>See <a class="reference external" href="https://github.com/akamhy/waybackpy/wiki/Python-package-docs">the waybackpy module documentation here</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -373,12 +429,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="bs4-basics.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">bs4</span></code> Basics</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+    <a class='left-prev' id="prev-link" href="scrapy-basics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><code class="docutils literal notranslate"><span class="pre">scrapy</span></code> basics</p>
+        </div>
     </a>
 </div>
             </footer>
