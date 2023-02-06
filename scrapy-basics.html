@@ -523,16 +523,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>New Scrapy project &#39;basics&#39;, using template directory &#39;/srv/conda/envs/notebook/lib/python3.7/site-packages/scrapy/templates/project&#39;, created in:
-    /home/jovyan/basics
-
-You can start your first spider with:
-    cd basics
-    scrapy genspider example example.com
-</pre></div>
-</div>
-</div>
 </div>
 <p>As the message suggests, this has created a new directory (<code class="docutils literal notranslate"><span class="pre">basics</span></code>) in the current working directory of the notebook. In order to find out where this folder is, click <code class="docutils literal notranslate"><span class="pre">File</span> <span class="pre">&gt;</span> <span class="pre">Open...</span></code> just underneath the Jupyter logo.</p>
 <p>Now, enter the <code class="docutils literal notranslate"><span class="pre">basics/basics/spiders</span></code> folder and create a new file using the <code class="docutils literal notranslate"><span class="pre">New</span></code> button near the top right of the screen. Pick <code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">File</span></code>. By clicking on the title, rename the file to <code class="docutils literal notranslate"><span class="pre">quotes_spider.py</span></code> and copy and paste the following script into the file:</p>
@@ -579,118 +569,11 @@ You can start your first spider with:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-06 22:47:30 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: basics)
-2023-02-06 22:47:30 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.7.0, w3lib 2.1.1, Twisted 22.10.0, Python 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) - [GCC 9.4.0], pyOpenSSL 23.0.0 (OpenSSL 3.0.7 1 Nov 2022), cryptography 38.0.2, Platform Linux-5.10.133+-x86_64-with-debian-buster-sid
-2023-02-06 22:47:30 [scrapy.crawler] INFO: Overridden settings:
-{&#39;BOT_NAME&#39;: &#39;basics&#39;,
- &#39;FEED_EXPORT_ENCODING&#39;: &#39;utf-8&#39;,
- &#39;NEWSPIDER_MODULE&#39;: &#39;basics.spiders&#39;,
- &#39;REQUEST_FINGERPRINTER_IMPLEMENTATION&#39;: &#39;2.7&#39;,
- &#39;ROBOTSTXT_OBEY&#39;: True,
- &#39;SPIDER_MODULES&#39;: [&#39;basics.spiders&#39;],
- &#39;TWISTED_REACTOR&#39;: &#39;twisted.internet.asyncioreactor.AsyncioSelectorReactor&#39;}
-2023-02-06 22:47:30 [asyncio] DEBUG: Using selector: EpollSelector
-2023-02-06 22:47:30 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
-2023-02-06 22:47:30 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
-2023-02-06 22:47:30 [scrapy.extensions.telnet] INFO: Telnet Password: b35e8e6268cdefdc
-2023-02-06 22:47:30 [scrapy.middleware] INFO: Enabled extensions:
-[&#39;scrapy.extensions.corestats.CoreStats&#39;,
- &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
- &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
- &#39;scrapy.extensions.logstats.LogStats&#39;]
-2023-02-06 22:47:30 [scrapy.middleware] INFO: Enabled downloader middlewares:
-[&#39;scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.useragent.UserAgentMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.retry.RetryMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.RedirectMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.cookies.CookiesMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
-2023-02-06 22:47:30 [scrapy.middleware] INFO: Enabled spider middlewares:
-[&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
-2023-02-06 22:47:30 [scrapy.middleware] INFO: Enabled item pipelines:
-[]
-2023-02-06 22:47:30 [scrapy.core.engine] INFO: Spider opened
-2023-02-06 22:47:30 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2023-02-06 22:47:30 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
-2023-02-06 22:47:30 [scrapy.core.engine] DEBUG: Crawled (404) &lt;GET https://quotes.toscrape.com/robots.txt&gt; (referer: None)
-2023-02-06 22:47:30 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://quotes.toscrape.com/page/1/&gt; (referer: None)
-2023-02-06 22:47:31 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://quotes.toscrape.com/page/2/&gt; (referer: None)
-2023-02-06 22:47:31 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://quotes.toscrape.com/page/1/&gt;
-{&#39;filename&#39;: &#39;quotes-1.html&#39;, &#39;uri&#39;: &#39;https://quotes.toscrape.com/page/1/&#39;, &#39;body_snippet&#39;: b&#39;&lt;!DOCTYPE html&gt;\n&lt;htm&#39;}
-2023-02-06 22:47:31 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://quotes.toscrape.com/page/2/&gt;
-{&#39;filename&#39;: &#39;quotes-2.html&#39;, &#39;uri&#39;: &#39;https://quotes.toscrape.com/page/2/&#39;, &#39;body_snippet&#39;: b&#39;&lt;!DOCTYPE html&gt;\n&lt;htm&#39;}
-2023-02-06 22:47:31 [scrapy.core.engine] INFO: Closing spider (finished)
-2023-02-06 22:47:31 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
-{&#39;downloader/request_bytes&#39;: 693,
- &#39;downloader/request_count&#39;: 3,
- &#39;downloader/request_method_count/GET&#39;: 3,
- &#39;downloader/response_bytes&#39;: 5555,
- &#39;downloader/response_count&#39;: 3,
- &#39;downloader/response_status_count/200&#39;: 2,
- &#39;downloader/response_status_count/404&#39;: 1,
- &#39;elapsed_time_seconds&#39;: 0.40816,
- &#39;finish_reason&#39;: &#39;finished&#39;,
- &#39;finish_time&#39;: datetime.datetime(2023, 2, 6, 22, 47, 31, 161763),
- &#39;httpcompression/response_bytes&#39;: 25019,
- &#39;httpcompression/response_count&#39;: 3,
- &#39;item_scraped_count&#39;: 2,
- &#39;log_count/DEBUG&#39;: 8,
- &#39;log_count/INFO&#39;: 10,
- &#39;memusage/max&#39;: 65552384,
- &#39;memusage/startup&#39;: 65552384,
- &#39;response_received_count&#39;: 3,
- &#39;robotstxt/request_count&#39;: 1,
- &#39;robotstxt/response_count&#39;: 1,
- &#39;robotstxt/response_status_count/404&#39;: 1,
- &#39;scheduler/dequeued&#39;: 2,
- &#39;scheduler/dequeued/memory&#39;: 2,
- &#39;scheduler/enqueued&#39;: 2,
- &#39;scheduler/enqueued/memory&#39;: 2,
- &#39;start_time&#39;: datetime.datetime(2023, 2, 6, 22, 47, 30, 753603)}
-2023-02-06 22:47:31 [scrapy.core.engine] INFO: Spider closed (finished)
-</pre></div>
-</div>
-</div>
 </div>
 <p>If we parse the logs, we can see the message <code class="docutils literal notranslate"><span class="pre">Saved</span> <span class="pre">file</span> <span class="pre">quotes-1.html</span></code>. Similarly, we can double check that these files have been downloaded. (<code class="docutils literal notranslate"><span class="pre">head</span> <span class="pre">-n</span> <span class="pre">20</span></code> shows the first ten lines of a file).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">20</span><span class="w"> </span>quotes-1.html
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-	&lt;meta charset=&quot;UTF-8&quot;&gt;
-	&lt;title&gt;Quotes to Scrape&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/bootstrap.min.css&quot;&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/main.css&quot;&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class=&quot;container&quot;&gt;
-        &lt;div class=&quot;row header-box&quot;&gt;
-            &lt;div class=&quot;col-md-8&quot;&gt;
-                &lt;h1&gt;
-                    &lt;a href=&quot;/&quot; style=&quot;text-decoration: none&quot;&gt;Quotes to Scrape&lt;/a&gt;
-                &lt;/h1&gt;
-            &lt;/div&gt;
-            &lt;div class=&quot;col-md-4&quot;&gt;
-                &lt;p&gt;
-                
-                    &lt;a href=&quot;/login&quot;&gt;Login&lt;/a&gt;
 </pre></div>
 </div>
 </div>
@@ -734,107 +617,10 @@ You can start your first spider with:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-06 22:49:24 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: basics)
-2023-02-06 22:49:24 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.7.0, w3lib 2.1.1, Twisted 22.10.0, Python 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) - [GCC 9.4.0], pyOpenSSL 23.0.0 (OpenSSL 3.0.7 1 Nov 2022), cryptography 38.0.2, Platform Linux-5.10.133+-x86_64-with-debian-buster-sid
-2023-02-06 22:49:24 [scrapy.crawler] INFO: Overridden settings:
-{&#39;BOT_NAME&#39;: &#39;basics&#39;,
- &#39;FEED_EXPORT_ENCODING&#39;: &#39;utf-8&#39;,
- &#39;NEWSPIDER_MODULE&#39;: &#39;basics.spiders&#39;,
- &#39;REQUEST_FINGERPRINTER_IMPLEMENTATION&#39;: &#39;2.7&#39;,
- &#39;ROBOTSTXT_OBEY&#39;: True,
- &#39;SPIDER_MODULES&#39;: [&#39;basics.spiders&#39;],
- &#39;TWISTED_REACTOR&#39;: &#39;twisted.internet.asyncioreactor.AsyncioSelectorReactor&#39;}
-2023-02-06 22:49:24 [asyncio] DEBUG: Using selector: EpollSelector
-2023-02-06 22:49:24 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
-2023-02-06 22:49:24 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
-2023-02-06 22:49:24 [scrapy.extensions.telnet] INFO: Telnet Password: 306d6273762e5e75
-2023-02-06 22:49:24 [scrapy.middleware] INFO: Enabled extensions:
-[&#39;scrapy.extensions.corestats.CoreStats&#39;,
- &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
- &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
- &#39;scrapy.extensions.feedexport.FeedExporter&#39;,
- &#39;scrapy.extensions.logstats.LogStats&#39;]
-2023-02-06 22:49:24 [scrapy.middleware] INFO: Enabled downloader middlewares:
-[&#39;scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.useragent.UserAgentMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.retry.RetryMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.RedirectMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.cookies.CookiesMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
-2023-02-06 22:49:24 [scrapy.middleware] INFO: Enabled spider middlewares:
-[&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
-2023-02-06 22:49:24 [scrapy.middleware] INFO: Enabled item pipelines:
-[]
-2023-02-06 22:49:24 [scrapy.core.engine] INFO: Spider opened
-2023-02-06 22:49:24 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2023-02-06 22:49:24 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
-2023-02-06 22:49:25 [scrapy.core.engine] DEBUG: Crawled (404) &lt;GET https://quotes.toscrape.com/robots.txt&gt; (referer: None)
-2023-02-06 22:49:25 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://quotes.toscrape.com/page/1/&gt; (referer: None)
-2023-02-06 22:49:25 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://quotes.toscrape.com/page/2/&gt; (referer: None)
-2023-02-06 22:49:25 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://quotes.toscrape.com/page/1/&gt;
-{&#39;filename&#39;: &#39;quotes-1.html&#39;, &#39;uri&#39;: &#39;https://quotes.toscrape.com/page/1/&#39;, &#39;body_snippet&#39;: b&#39;&lt;!DOCTYPE html&gt;\n&lt;htm&#39;}
-2023-02-06 22:49:25 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://quotes.toscrape.com/page/2/&gt;
-{&#39;filename&#39;: &#39;quotes-2.html&#39;, &#39;uri&#39;: &#39;https://quotes.toscrape.com/page/2/&#39;, &#39;body_snippet&#39;: b&#39;&lt;!DOCTYPE html&gt;\n&lt;htm&#39;}
-2023-02-06 22:49:25 [scrapy.core.engine] INFO: Closing spider (finished)
-2023-02-06 22:49:25 [scrapy.extensions.feedexport] INFO: Stored csv feed (2 items) in: quotes.csv
-2023-02-06 22:49:25 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
-{&#39;downloader/request_bytes&#39;: 693,
- &#39;downloader/request_count&#39;: 3,
- &#39;downloader/request_method_count/GET&#39;: 3,
- &#39;downloader/response_bytes&#39;: 5556,
- &#39;downloader/response_count&#39;: 3,
- &#39;downloader/response_status_count/200&#39;: 2,
- &#39;downloader/response_status_count/404&#39;: 1,
- &#39;elapsed_time_seconds&#39;: 0.355137,
- &#39;feedexport/success_count/FileFeedStorage&#39;: 1,
- &#39;finish_reason&#39;: &#39;finished&#39;,
- &#39;finish_time&#39;: datetime.datetime(2023, 2, 6, 22, 49, 25, 298707),
- &#39;httpcompression/response_bytes&#39;: 25019,
- &#39;httpcompression/response_count&#39;: 3,
- &#39;item_scraped_count&#39;: 2,
- &#39;log_count/DEBUG&#39;: 8,
- &#39;log_count/INFO&#39;: 11,
- &#39;memusage/max&#39;: 65564672,
- &#39;memusage/startup&#39;: 65564672,
- &#39;response_received_count&#39;: 3,
- &#39;robotstxt/request_count&#39;: 1,
- &#39;robotstxt/response_count&#39;: 1,
- &#39;robotstxt/response_status_count/404&#39;: 1,
- &#39;scheduler/dequeued&#39;: 2,
- &#39;scheduler/dequeued/memory&#39;: 2,
- &#39;scheduler/enqueued&#39;: 2,
- &#39;scheduler/enqueued/memory&#39;: 2,
- &#39;start_time&#39;: datetime.datetime(2023, 2, 6, 22, 49, 24, 943570)}
-2023-02-06 22:49:25 [scrapy.core.engine] INFO: Spider closed (finished)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>head<span class="w"> </span>quotes.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>filename,uri,body_snippet
-
-quotes-1.html,https://quotes.toscrape.com/page/1/,&quot;&lt;!DOCTYPE html&gt;
-&lt;htm&quot;
-
-quotes-2.html,https://quotes.toscrape.com/page/2/,&quot;&lt;!DOCTYPE html&gt;
-&lt;htm&quot;
 </pre></div>
 </div>
 </div>
@@ -875,118 +661,10 @@ quotes-2.html,https://quotes.toscrape.com/page/2/,&quot;&lt;!DOCTYPE html&gt;
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-06 22:53:23 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: basics)
-2023-02-06 22:53:23 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.7.0, w3lib 2.1.1, Twisted 22.10.0, Python 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) - [GCC 9.4.0], pyOpenSSL 23.0.0 (OpenSSL 3.0.7 1 Nov 2022), cryptography 38.0.2, Platform Linux-5.10.133+-x86_64-with-debian-buster-sid
-2023-02-06 22:53:23 [scrapy.crawler] INFO: Overridden settings:
-{&#39;BOT_NAME&#39;: &#39;basics&#39;,
- &#39;FEED_EXPORT_ENCODING&#39;: &#39;utf-8&#39;,
- &#39;NEWSPIDER_MODULE&#39;: &#39;basics.spiders&#39;,
- &#39;REQUEST_FINGERPRINTER_IMPLEMENTATION&#39;: &#39;2.7&#39;,
- &#39;ROBOTSTXT_OBEY&#39;: True,
- &#39;SPIDER_MODULES&#39;: [&#39;basics.spiders&#39;],
- &#39;TWISTED_REACTOR&#39;: &#39;twisted.internet.asyncioreactor.AsyncioSelectorReactor&#39;}
-2023-02-06 22:53:23 [asyncio] DEBUG: Using selector: EpollSelector
-2023-02-06 22:53:23 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
-2023-02-06 22:53:23 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
-2023-02-06 22:53:23 [scrapy.extensions.telnet] INFO: Telnet Password: edbd6ead82e60af5
-2023-02-06 22:53:23 [scrapy.middleware] INFO: Enabled extensions:
-[&#39;scrapy.extensions.corestats.CoreStats&#39;,
- &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
- &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
- &#39;scrapy.extensions.feedexport.FeedExporter&#39;,
- &#39;scrapy.extensions.logstats.LogStats&#39;]
-2023-02-06 22:53:23 [scrapy.middleware] INFO: Enabled downloader middlewares:
-[&#39;scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.useragent.UserAgentMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.retry.RetryMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.RedirectMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.cookies.CookiesMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
-2023-02-06 22:53:23 [scrapy.middleware] INFO: Enabled spider middlewares:
-[&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
-2023-02-06 22:53:23 [scrapy.middleware] INFO: Enabled item pipelines:
-[]
-2023-02-06 22:53:23 [scrapy.core.engine] INFO: Spider opened
-2023-02-06 22:53:23 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2023-02-06 22:53:23 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
-2023-02-06 22:53:23 [scrapy.core.engine] DEBUG: Crawled (404) &lt;GET https://quotes.toscrape.com/robots.txt&gt; (referer: None)
-2023-02-06 22:53:23 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://quotes.toscrape.com/page/1/&gt; (referer: None)
-2023-02-06 22:53:23 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://quotes.toscrape.com/page/2/&gt; (referer: None)
-2023-02-06 22:53:23 [py.warnings] WARNING: /home/jovyan/basics/basics/spiders/quotes_spider.py:19: GuessedAtParserWarning: No parser was explicitly specified, so I&#39;m using the best available HTML parser for this system (&quot;lxml&quot;). This usually isn&#39;t a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
-
-The code that caused this warning is on line 19 of the file /home/jovyan/basics/basics/spiders/quotes_spider.py. To get rid of this warning, pass the additional argument &#39;features=&quot;lxml&quot;&#39; to the BeautifulSoup constructor.
-
-  soup = bs4.BeautifulSoup(response.text)
-
-2023-02-06 22:53:23 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://quotes.toscrape.com/page/1/&gt;
-{&#39;uri&#39;: &#39;https://quotes.toscrape.com/page/1/&#39;, &#39;title&#39;: &lt;title&gt;Quotes to Scrape&lt;/title&gt;}
-2023-02-06 22:53:23 [py.warnings] WARNING: /home/jovyan/basics/basics/spiders/quotes_spider.py:19: GuessedAtParserWarning: No parser was explicitly specified, so I&#39;m using the best available HTML parser for this system (&quot;lxml&quot;). This usually isn&#39;t a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
-
-The code that caused this warning is on line 19 of the file /home/jovyan/basics/basics/spiders/quotes_spider.py. To get rid of this warning, pass the additional argument &#39;features=&quot;lxml&quot;&#39; to the BeautifulSoup constructor.
-
-  soup = bs4.BeautifulSoup(response.text)
-
-2023-02-06 22:53:23 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://quotes.toscrape.com/page/2/&gt;
-{&#39;uri&#39;: &#39;https://quotes.toscrape.com/page/2/&#39;, &#39;title&#39;: &lt;title&gt;Quotes to Scrape&lt;/title&gt;}
-2023-02-06 22:53:23 [scrapy.core.engine] INFO: Closing spider (finished)
-2023-02-06 22:53:23 [scrapy.extensions.feedexport] INFO: Stored csv feed (2 items) in: quotes.csv
-2023-02-06 22:53:23 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
-{&#39;downloader/request_bytes&#39;: 693,
- &#39;downloader/request_count&#39;: 3,
- &#39;downloader/request_method_count/GET&#39;: 3,
- &#39;downloader/response_bytes&#39;: 5557,
- &#39;downloader/response_count&#39;: 3,
- &#39;downloader/response_status_count/200&#39;: 2,
- &#39;downloader/response_status_count/404&#39;: 1,
- &#39;elapsed_time_seconds&#39;: 0.450085,
- &#39;feedexport/success_count/FileFeedStorage&#39;: 1,
- &#39;finish_reason&#39;: &#39;finished&#39;,
- &#39;finish_time&#39;: datetime.datetime(2023, 2, 6, 22, 53, 23, 752230),
- &#39;httpcompression/response_bytes&#39;: 25019,
- &#39;httpcompression/response_count&#39;: 3,
- &#39;item_scraped_count&#39;: 2,
- &#39;log_count/DEBUG&#39;: 8,
- &#39;log_count/INFO&#39;: 11,
- &#39;log_count/WARNING&#39;: 2,
- &#39;memusage/max&#39;: 67162112,
- &#39;memusage/startup&#39;: 67162112,
- &#39;response_received_count&#39;: 3,
- &#39;robotstxt/request_count&#39;: 1,
- &#39;robotstxt/response_count&#39;: 1,
- &#39;robotstxt/response_status_count/404&#39;: 1,
- &#39;scheduler/dequeued&#39;: 2,
- &#39;scheduler/dequeued/memory&#39;: 2,
- &#39;scheduler/enqueued&#39;: 2,
- &#39;scheduler/enqueued/memory&#39;: 2,
- &#39;start_time&#39;: datetime.datetime(2023, 2, 6, 22, 53, 23, 302145)}
-2023-02-06 22:53:23 [scrapy.core.engine] INFO: Spider closed (finished)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>head<span class="w"> </span>quotes.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uri,title
-
-https://quotes.toscrape.com/page/1/,&lt;title&gt;Quotes to Scrape&lt;/title&gt;
-
-https://quotes.toscrape.com/page/2/,&lt;title&gt;Quotes to Scrape&lt;/title&gt;
 </pre></div>
 </div>
 </div>
@@ -996,6 +674,7 @@ https://quotes.toscrape.com/page/2/,&lt;title&gt;Quotes to Scrape&lt;/title&gt;
 <section id="source-for-discogs-spider-py">
 <h2>Source for <code class="docutils literal notranslate"><span class="pre">discogs_spider.py</span></code><a class="headerlink" href="#source-for-discogs-spider-py" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
+<div class="toggle docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">import</span> <span class="nn">bs4</span>
@@ -1029,146 +708,13 @@ https://quotes.toscrape.com/page/2/,&lt;title&gt;Quotes to Scrape&lt;/title&gt;
             <span class="p">}</span>
 </pre></div>
 </div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>scrapy<span class="w"> </span>crawl<span class="w"> </span>discogs<span class="w"> </span>-O<span class="w"> </span>discogs.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-06 23:02:34 [scrapy.utils.log] INFO: Scrapy 2.8.0 started (bot: basics)
-2023-02-06 23:02:34 [scrapy.utils.log] INFO: Versions: lxml 4.9.2.0, libxml2 2.9.14, cssselect 1.2.0, parsel 1.7.0, w3lib 2.1.1, Twisted 22.10.0, Python 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) - [GCC 9.4.0], pyOpenSSL 23.0.0 (OpenSSL 3.0.7 1 Nov 2022), cryptography 38.0.2, Platform Linux-5.10.133+-x86_64-with-debian-buster-sid
-2023-02-06 23:02:34 [scrapy.crawler] INFO: Overridden settings:
-{&#39;BOT_NAME&#39;: &#39;basics&#39;,
- &#39;FEED_EXPORT_ENCODING&#39;: &#39;utf-8&#39;,
- &#39;NEWSPIDER_MODULE&#39;: &#39;basics.spiders&#39;,
- &#39;REQUEST_FINGERPRINTER_IMPLEMENTATION&#39;: &#39;2.7&#39;,
- &#39;ROBOTSTXT_OBEY&#39;: True,
- &#39;SPIDER_MODULES&#39;: [&#39;basics.spiders&#39;],
- &#39;TWISTED_REACTOR&#39;: &#39;twisted.internet.asyncioreactor.AsyncioSelectorReactor&#39;}
-2023-02-06 23:02:34 [asyncio] DEBUG: Using selector: EpollSelector
-2023-02-06 23:02:34 [scrapy.utils.log] DEBUG: Using reactor: twisted.internet.asyncioreactor.AsyncioSelectorReactor
-2023-02-06 23:02:34 [scrapy.utils.log] DEBUG: Using asyncio event loop: asyncio.unix_events._UnixSelectorEventLoop
-2023-02-06 23:02:34 [scrapy.extensions.telnet] INFO: Telnet Password: 1552ba76b2534ec8
-2023-02-06 23:02:34 [scrapy.middleware] INFO: Enabled extensions:
-[&#39;scrapy.extensions.corestats.CoreStats&#39;,
- &#39;scrapy.extensions.telnet.TelnetConsole&#39;,
- &#39;scrapy.extensions.memusage.MemoryUsage&#39;,
- &#39;scrapy.extensions.feedexport.FeedExporter&#39;,
- &#39;scrapy.extensions.logstats.LogStats&#39;]
-2023-02-06 23:02:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
-[&#39;scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.useragent.UserAgentMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.retry.RetryMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.redirect.RedirectMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.cookies.CookiesMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware&#39;,
- &#39;scrapy.downloadermiddlewares.stats.DownloaderStats&#39;]
-2023-02-06 23:02:34 [scrapy.middleware] INFO: Enabled spider middlewares:
-[&#39;scrapy.spidermiddlewares.httperror.HttpErrorMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.offsite.OffsiteMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.referer.RefererMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#39;,
- &#39;scrapy.spidermiddlewares.depth.DepthMiddleware&#39;]
-2023-02-06 23:02:34 [scrapy.middleware] INFO: Enabled item pipelines:
-[]
-2023-02-06 23:02:34 [scrapy.core.engine] INFO: Spider opened
-2023-02-06 23:02:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
-2023-02-06 23:02:34 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
-2023-02-06 23:02:34 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://www.discogs.com/robots.txt&gt; (referer: None)
-2023-02-06 23:02:35 [scrapy.core.engine] DEBUG: Crawled (200) &lt;GET https://www.discogs.com/lists/277616&gt; (referer: None)
-2023-02-06 23:02:35 [py.warnings] WARNING: /home/jovyan/basics/basics/spiders/discogs_spider.py:18: GuessedAtParserWarning: No parser was explicitly specified, so I&#39;m using the best available HTML parser for this system (&quot;lxml&quot;). This usually isn&#39;t a problem, but if you run this code on another system, or in a different virtual environment, it may use a different parser and behave differently.
-
-The code that caused this warning is on line 18 of the file /home/jovyan/basics/basics/spiders/discogs_spider.py. To get rid of this warning, pass the additional argument &#39;features=&quot;lxml&quot;&#39; to the BeautifulSoup constructor.
-
-  soup = bs4.BeautifulSoup(response.text)
-
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Maroon 5 - Songs About Jane&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/9S5gwiP7Jr5Emfdrl8ERBHxUAc4p-mPHU8GMbGbGees/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNTEz/OC0xMTEzMDM2MzE1/LmpwZw.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Hawkwind - Space Ritual&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/wMzYu3lEPnNPB8Ord6SyhoA6eZSvgu8ZQMSxRxO34Dw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDQw/Ni0xNjA4MTM0NTcx/LTE0NzkuanBlZw.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Cave Gaze Wagon - Wonderful Wagon World&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/wyMbzqKbQSMjcdkWowSrSRX7Pj_m5phhSxw5ZFe3oE4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxNTk3/OTctMTQ1NjI1MjI2/Ni00MDg1LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;The Pax Cecilia - Nouveau (A Theatre Of The Air)&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/tfzq-AQIFomVcMDxegx4a8pVCgjn9_2CdDROpDALo-M/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMzIy/OTctMTM5MTI5ODMw/Ni03ODg4LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Various - Mythical Tapes Vol. I&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/WU-cIgUI_-3-1vFxM06SgUO4oykhn_i8XgV39Ss0A8Y/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ4ODA1/MTUtMTM3ODc0NDI0/Mi0zNzg1LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Yes - Yessongs&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/Ifdi30FMqrHGtfnE2CkzYqONmmN0YdRPgcNND2KP6Wg/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc0MzYx/My0xNDQ4MjA2NTU3/LTQ4NjUuanBlZw.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &quot;Marc Hamilton - Disque D&#39;Or&quot;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/GIqSPWHd803G_Q6maD6Yvtd0Imgoem5ylfWhZNnK6TY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxODM1/NDUtMTQ4MTExNzE0/NS00MjUwLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Marc Hamilton - Viens&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/fu6BkMm-PdvYUIu4tlcWN97eBaO0gTTTPzhyf3AgIJc/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY4NTEz/NjAtMTQyNzk4MzMy/OC00MTg3LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Татьяна Гринденко*, Юрий Смирнов* - Ragtimes = Рэг-Таймы&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/jW-sU9hijnGoRzsWUTTfsVPXcIo_3UzL8bjsHNYGzVs/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNDY1/OTk5LTE2NTQzNjU2/NjItOTQyNC5qcGVn.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;バニラ・ファッジ* = The Vanilla Fudge* - キープ・ミー・ハンギング・オン = You Keep Me Hanging On&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/Yix2DeX7xATDHLgyIDX0kfTvbyix22IZ1mJldz5fhO4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc3MTk2/ODItMTQ3MzE0Nzgw/OS04NTQzLnBuZw.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;The Lovethugs - Playground Instructors&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/P5pXiTahIieygcpD_H-vBzo2ft5b15MY-zlwezOxYt0/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMDI3/MzctMTQ1NzA1ODk1/Ni0zOTMzLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &quot;Various - Blanck Mass Presents The Strange Colour Of Your Body&#39;s Tears Re-Score&quot;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/PrlqzNQYvr3xbri7MH_pROstAHyp2vg6LSQsZRo4xAU/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTcyNTE1/OTctMTQzNzIwMDQy/NC0yMjE3LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Jing Chi, Vinnie Colaiuta, Robben Ford, Jimmy Haslip - Jing Chi&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/xyYBiZR__1HkJURkzLL70fnMe1xYVvElqDSDvarIsm8/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY2Njc2/ODItMTQyNDIxNTQ5/OS05Nzk0LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Rock Shop - Mr. Lee\&#39;s &quot;Swing\&#39;n Affair&quot; Presents&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/4XVsifu2kpFu_nRCCrfsh9XtWPmtelABo2-5lBtlkrE/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyMTQz/MDMtMTQ1NzI3OTEz/Ni0xMzQ0LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Blue Mink - Melting Pot&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/VBSWqKSL0T6Bre2rMjQaovN_uEMjii0AoLJ_WYO5ejQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ3MTI2/NDUtMTU4NjIyMDEz/NC03NzMzLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Ars Nova (3) - Pavan For My Lady&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/lgp0AuyykuN1KzQ4xgLHsR8J14xlJ4WFF7xhipEmD70/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNDQy/NDEtMTQ1Nzg0Nzgy/MC00ODY1LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Blues Pills - Blues Pills&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/-aqQ84mnWf9yyEkvLIDK-TBnAmF2o0wMvX9x1RiJqUE/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU5MTE4/MTItMTQxMDUwOTM5/My0xNjk2LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;The Beatles - Lady Madonna&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/XFYQKYDBy0iocQokZuF7IM30msiuc1TZ0jUkTnimHnI/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgyNTA1/NzktMTQ1Nzk2NjM2/Ny03MDcyLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &quot;Sleep - Reunion At All Tomorrow&#39;s Parties&quot;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/z4eJHngDwGIPyW0vkhvorI23aHz15_PsDQgbj6MQQmQ/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTUwMTc1/OTQtMTM4MjI1NjI3/My01NzAzLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Reel People Feat. Darien - Sure&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/7OuCn186O3qqmCDHAe69E-ZgOUVQuHph6K4Fu-E8aaA/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTczODA0/NjEtMTQ0MDI1MTcz/Ni04MTA3LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Grim Fandango - In The Rough&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/Ra1prFJ89i-XB1C50kMDTsMoOhPnGr52K2WsR9HFPmU/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU3NzE5/MzgtMTQwMjIzMDM3/Ny0yNjcyLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Paul Mauriat And His Orchestra - Let The Sunshine In / Midnight Cowboy / And Other Goodies&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/N_eBaAMU8W-WeaKeiku1Kayn6du0VMtnHVjWMe_1Xak/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2MjUw/NjgtMTM1Nzk1MTA0/OC0yNjUzLmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;The Sea Urchins - A Morning Odyssey&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/mGrVS9S4ckiztRGAagYRXN6ZePsU1o4WZ7mkvFDI0vY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTk5NDA5/Ny0xMTg2MjE1NjM1/LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Various - Re-Evolution: FDM Sings The Hollies&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/S_iTIJYinLqXOz8BFx5CSGV9P1FcxvZhz2HWascMMNw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNjIw/NjctMTM2NDc0MTM2/OC04MTM4LmpwZWc.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.scraper] DEBUG: Scraped from &lt;200 https://www.discogs.com/lists/277616&gt;
-{&#39;uri&#39;: &#39;https://www.discogs.com/lists/277616&#39;, &#39;album_title&#39;: &#39;Josephine Foster - Hazel Eyes, I Will Lead You&#39;, &#39;cover_image_link&#39;: &#39;https://i.discogs.com/2cQNQSUfjJyD_d78We5T3XHbl_GzvuHxwhfmegDK3YM/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNDg4/OTktMTI5MjMyMDUx/Ny5qcGVn.jpeg&#39;}
-2023-02-06 23:02:35 [scrapy.core.engine] INFO: Closing spider (finished)
-2023-02-06 23:02:35 [scrapy.extensions.feedexport] INFO: Stored csv feed (25 items) in: discogs.csv
-2023-02-06 23:02:35 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
-{&#39;downloader/request_bytes&#39;: 623,
- &#39;downloader/request_count&#39;: 2,
- &#39;downloader/request_method_count/GET&#39;: 2,
- &#39;downloader/response_bytes&#39;: 20104,
- &#39;downloader/response_count&#39;: 2,
- &#39;downloader/response_status_count/200&#39;: 2,
- &#39;elapsed_time_seconds&#39;: 0.870176,
- &#39;feedexport/success_count/FileFeedStorage&#39;: 1,
- &#39;finish_reason&#39;: &#39;finished&#39;,
- &#39;finish_time&#39;: datetime.datetime(2023, 2, 6, 23, 2, 35, 637304),
- &#39;httpcompression/response_bytes&#39;: 123857,
- &#39;httpcompression/response_count&#39;: 2,
- &#39;item_scraped_count&#39;: 25,
- &#39;log_count/DEBUG&#39;: 30,
- &#39;log_count/INFO&#39;: 11,
- &#39;log_count/WARNING&#39;: 1,
- &#39;memusage/max&#39;: 67518464,
- &#39;memusage/startup&#39;: 67518464,
- &#39;response_received_count&#39;: 2,
- &#39;robotstxt/request_count&#39;: 1,
- &#39;robotstxt/response_count&#39;: 1,
- &#39;robotstxt/response_status_count/200&#39;: 1,
- &#39;scheduler/dequeued&#39;: 1,
- &#39;scheduler/dequeued/memory&#39;: 1,
- &#39;scheduler/enqueued&#39;: 1,
- &#39;scheduler/enqueued/memory&#39;: 1,
- &#39;start_time&#39;: datetime.datetime(2023, 2, 6, 23, 2, 34, 767128)}
-2023-02-06 23:02:35 [scrapy.core.engine] INFO: Spider closed (finished)
 </pre></div>
 </div>
 </div>
@@ -1176,29 +722,6 @@ The code that caused this warning is on line 18 of the file /home/jovyan/basics/
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>head<span class="w"> </span>discogs.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>uri,album_title,cover_image_link
-
-https://www.discogs.com/lists/277616,Maroon 5 - Songs About Jane,https://i.discogs.com/9S5gwiP7Jr5Emfdrl8ERBHxUAc4p-mPHU8GMbGbGees/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQzNTEz/OC0xMTEzMDM2MzE1/LmpwZw.jpeg
-
-https://www.discogs.com/lists/277616,Hawkwind - Space Ritual,https://i.discogs.com/wMzYu3lEPnNPB8Ord6SyhoA6eZSvgu8ZQMSxRxO34Dw/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY0MDQw/Ni0xNjA4MTM0NTcx/LTE0NzkuanBlZw.jpeg
-
-https://www.discogs.com/lists/277616,Cave Gaze Wagon - Wonderful Wagon World,https://i.discogs.com/wyMbzqKbQSMjcdkWowSrSRX7Pj_m5phhSxw5ZFe3oE4/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxNTk3/OTctMTQ1NjI1MjI2/Ni00MDg1LmpwZWc.jpeg
-
-https://www.discogs.com/lists/277616,The Pax Cecilia - Nouveau (A Theatre Of The Air),https://i.discogs.com/tfzq-AQIFomVcMDxegx4a8pVCgjn9_2CdDROpDALo-M/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIxMzIy/OTctMTM5MTI5ODMw/Ni03ODg4LmpwZWc.jpeg
-
-https://www.discogs.com/lists/277616,Various - Mythical Tapes Vol. I,https://i.discogs.com/WU-cIgUI_-3-1vFxM06SgUO4oykhn_i8XgV39Ss0A8Y/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ4ODA1/MTUtMTM3ODc0NDI0/Mi0zNzg1LmpwZWc.jpeg
-
-https://www.discogs.com/lists/277616,Yes - Yessongs,https://i.discogs.com/Ifdi30FMqrHGtfnE2CkzYqONmmN0YdRPgcNND2KP6Wg/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTc0MzYx/My0xNDQ4MjA2NTU3/LTQ4NjUuanBlZw.jpeg
-
-https://www.discogs.com/lists/277616,Marc Hamilton - Disque D&#39;Or,https://i.discogs.com/GIqSPWHd803G_Q6maD6Yvtd0Imgoem5ylfWhZNnK6TY/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTgxODM1/NDUtMTQ4MTExNzE0/NS00MjUwLmpwZWc.jpeg
-
-https://www.discogs.com/lists/277616,Marc Hamilton - Viens,https://i.discogs.com/fu6BkMm-PdvYUIu4tlcWN97eBaO0gTTTPzhyf3AgIJc/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTY4NTEz/NjAtMTQyNzk4MzMy/OC00MTg3LmpwZWc.jpeg
-
-https://www.discogs.com/lists/277616,&quot;Татьяна Гринденко*, Юрий Смирнов* - Ragtimes = Рэг-Таймы&quot;,https://i.discogs.com/jW-sU9hijnGoRzsWUTTfsVPXcIo_3UzL8bjsHNYGzVs/rs:fill/g:sm/q:40/h:300/w:300/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIzNDY1/OTk5LTE2NTQzNjU2/NjItOTQyNC5qcGVn.jpeg
 </pre></div>
 </div>
 </div>
