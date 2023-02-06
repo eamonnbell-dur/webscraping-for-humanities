@@ -6,3 +6,5 @@ root: intro
 chapters:
 - file: bs4-basics
 - file: bs4-further-topics
+- file: scrapy-basics
+- file: waybackpy-basics
