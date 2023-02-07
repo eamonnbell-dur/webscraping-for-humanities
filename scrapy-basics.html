@@ -430,13 +430,25 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#source-for-discogs-spider-py">
+  <a class="reference internal nav-link" href="#source-for-discogs-spider-py-version-1">
    Source for
    <code class="docutils literal notranslate">
     <span class="pre">
      discogs_spider.py
     </span>
    </code>
+   - version 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-for-discogs-spider-py-version-2">
+   Source for
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     discogs_spider.py
+    </span>
+   </code>
+   - version 2
   </a>
  </li>
 </ul>
@@ -492,13 +504,25 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#source-for-discogs-spider-py">
+  <a class="reference internal nav-link" href="#source-for-discogs-spider-py-version-1">
    Source for
    <code class="docutils literal notranslate">
     <span class="pre">
      discogs_spider.py
     </span>
    </code>
+   - version 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-for-discogs-spider-py-version-2">
+   Source for
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     discogs_spider.py
+    </span>
+   </code>
+   - version 2
   </a>
  </li>
 </ul>
@@ -670,9 +694,10 @@ title="Print to PDF"
 </div>
 </div>
 <p>At this point, you probably have enough to <a class="reference external" href="https://eamonnbell-dur.github.io/webscraping-for-humanities/bs4-further-topics.html">go back to the final result with <code class="docutils literal notranslate"><span class="pre">bs4</span></code> from the last day’s workshop</a> and use what you know to create a new spider, called <code class="docutils literal notranslate"><span class="pre">discogs_spider.py</span></code>, which, given a URI of a <a class="reference external" href="http://Discogs.com">Discogs.com</a> list, will <strong>yield</strong> the album titles and the links to the cover images for each album in the list.</p>
+<p>Think about how the script in <code class="docutils literal notranslate"><span class="pre">quotes_spider.py</span></code> could be adapted to work for <a class="reference external" href="http://Discogs.com">Discogs.com</a> before revealing the answer.</p>
 </section>
-<section id="source-for-discogs-spider-py">
-<h2>Source for <code class="docutils literal notranslate"><span class="pre">discogs_spider.py</span></code><a class="headerlink" href="#source-for-discogs-spider-py" title="Permalink to this headline">#</a></h2>
+<section id="source-for-discogs-spider-py-version-1">
+<h2>Source for <code class="docutils literal notranslate"><span class="pre">discogs_spider.py</span></code> - version 1<a class="headerlink" href="#source-for-discogs-spider-py-version-1" title="Permalink to this headline">#</a></h2>
 <hr class="docutils" />
 <div class="toggle docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -697,7 +722,6 @@ title="Print to PDF"
         <span class="n">ol_albums</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;listitems&#39;</span><span class="p">)</span>
         <span class="n">li_albums</span> <span class="o">=</span> <span class="n">ol_albums</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
 
-        
         <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">li_albums</span><span class="p">:</span>
             <span class="n">album_title</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
             <span class="n">cover_image_link</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)[</span><span class="s1">&#39;src&#39;</span><span class="p">]</span> 
@@ -712,6 +736,7 @@ title="Print to PDF"
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
+<p>Let’s run the crawler…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>scrapy<span class="w"> </span>crawl<span class="w"> </span>discogs<span class="w"> </span>-O<span class="w"> </span>discogs.csv
@@ -719,6 +744,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>…and look at the data it produces:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>head<span class="w"> </span>discogs.csv
@@ -726,6 +752,115 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<p>We notice that the data returned relates only to the albums listed on the first page. We need to update the spider in such a way that it:</p>
+<ol class="simple">
+<li><p>Identifies the link to the next page of results</p></li>
+<li><p>Fires off a HTTP request to the URI that this link points to</p></li>
+<li><p>Parses the body of this request to extract the desired information</p></li>
+<li><p>Go to step 1, stopping there if the link to the next page cannot be found (this means that we are on the last page of results)</p></li>
+</ol>
+<p>Have a go at adapting the scraper for this task.</p>
+<div class="tip admonition">
+<p class="admonition-title">Hint</p>
+<p>We know that the <code class="docutils literal notranslate"><span class="pre">yield</span></code> keyword is used inside <code class="docutils literal notranslate"><span class="pre">parse()</span></code> to expose the data that is transformed by the HTML parser so that it can be output to the user each time the spider is run. We also know that inside <code class="docutils literal notranslate"><span class="pre">start_requests()</span></code> the <code class="docutils literal notranslate"><span class="pre">yield</span></code> keyword can be used to trigger a request. There is no constraint on the number of <code class="docutils literal notranslate"><span class="pre">yield</span></code> statements in a function body; Python will get to each of them in turn.</p>
+<p>Python generators are a out of scope, <a class="reference external" href="https://wiki.python.org/moin/Generators">but you can read a bit about how they work here</a> if you are interested. If you already know about them, <a class="reference external" href="https://peps.python.org/pep-0255/">read the original proposal (PEP 255) that introduced them to the language</a>.</p>
+</div>
+</section>
+<section id="source-for-discogs-spider-py-version-2">
+<h2>Source for <code class="docutils literal notranslate"><span class="pre">discogs_spider.py</span></code> - version 2<a class="headerlink" href="#source-for-discogs-spider-py-version-2" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="toggle docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">bs4</span>
+<span class="kn">import</span> <span class="nn">scrapy</span>
+
+
+<span class="k">class</span> <span class="nc">DiscogsSpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;discogs&quot;</span>
+
+    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;https://www.discogs.com/lists/277616&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">bs4</span><span class="o">.</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+        
+        <span class="n">ol_albums</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;listitems&#39;</span><span class="p">)</span>
+        <span class="n">li_albums</span> <span class="o">=</span> <span class="n">ol_albums</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">li_albums</span><span class="p">:</span>
+            <span class="n">album_title</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+            <span class="n">cover_image_link</span> <span class="o">=</span> <span class="n">li</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;img&#39;</span><span class="p">)[</span><span class="s1">&#39;src&#39;</span><span class="p">]</span> 
+            <span class="k">yield</span> <span class="p">{</span>
+                <span class="s1">&#39;uri&#39;</span><span class="p">:</span> <span class="n">response</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+                <span class="s1">&#39;album_title&#39;</span><span class="p">:</span> <span class="n">album_title</span><span class="p">,</span>
+                <span class="s1">&#39;cover_image_link&#39;</span><span class="p">:</span> <span class="n">cover_image_link</span>
+            <span class="p">}</span>
+
+        <span class="n">nav</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;nav&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;aria-label&#39;</span><span class="p">:</span><span class="s1">&#39;Pagination&#39;</span><span class="p">})</span>
+        <span class="n">link</span> <span class="o">=</span> <span class="n">nav</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;pagination_next&#39;</span><span class="p">)</span>
+        <span class="n">link_destination</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">link_destination</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">absolute_next_link</span> <span class="o">=</span> <span class="s1">&#39;https://www.discogs.com&#39;</span> <span class="o">+</span> <span class="n">link_destination</span>
+            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">absolute_next_link</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>(Don’t forget to update your <code class="docutils literal notranslate"><span class="pre">basics/basics/spiders/discogs_scraper.py</span></code> file before proceeding!). Let’s run the new scraper!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>scrapy<span class="w"> </span>crawl<span class="w"> </span>discogs<span class="w"> </span>-O<span class="w"> </span>discogs.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we count the number of lines in the file, we’ll see that over 150 results were retrieved. And, crucially, the scraper stopped correctly when it found that there was no next link on the page. Making sure that your spider has a well-defined stopping condition is key.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="nb">cd</span><span class="w"> </span>basics<span class="p">;</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w"> </span>discogs.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we have arrived pretty much where we were at the end of the last tutorial, working instead with the Scrapy framework to describe a crawler. There are many advantages to this, but perhaps one of the most significant is the way that <code class="docutils literal notranslate"><span class="pre">scrapy</span></code> splits the responsibility for the scraping-related tasks into independent subsystems. Here is a picture from the Scrapy authors depicting its large-scale design:</p>
+<p><img alt="https://docs.scrapy.org/en/latest/_images/scrapy_architecture_02.png" src="https://docs.scrapy.org/en/latest/_images/scrapy_architecture_02.png" /></p>
+<p>One of the things that this allows for is the declarative specification of settings for the scraper, whether at the project level or at the level of the individual scraper. <strong>Correctly setting these values is crucial for responsible scraping</strong>. You can find the global settings inside the file <code class="docutils literal notranslate"><span class="pre">basics/basics/settings.py</span></code>. I exceprt some of the interesting settings below as they relate to:</p>
+<ul class="simple">
+<li><p>Setting the <code class="docutils literal notranslate"><span class="pre">USER_AGENT</span></code> string to identify yourself and your crawler</p></li>
+<li><p>Setting the crawler to respect <code class="docutils literal notranslate"><span class="pre">robots.txt</span></code></p></li>
+<li><p>Setting up limits on the number of concurrent requests to remote resources (globally and on a per domain basis)</p></li>
+<li><p>Introduce a delay between requests (a basic form of ratelimiting/throttling) (see also: <a class="reference external" href="https://docs.scrapy.org/en/latest/topics/autothrottle.html?highlight=autothrottle">the Scrapy documentation about Autothrottling</a>)</p></li>
+</ul>
+<p>I also include a setting about the encoding of the exported data, which may be relevant to you depending on the sites you are interested in studying.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span>
+<span class="c1"># Uncomment this line and fill in your own value here</span>
+<span class="c1">#USER_AGENT = &quot;basics (+http://www.yourdomain.com)&quot;</span>
+
+<span class="c1"># Obey robots.txt rules</span>
+<span class="n">ROBOTSTXT_OBEY</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Configure maximum concurrent requests performed by Scrapy (default: 16)</span>
+<span class="n">CONCURRENT_REQUESTS</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="c1"># Configure maximum concurrent requests per domain performed by Scrapy </span>
+<span class="n">CONCURRENT_REQUESTS_PER_DOMAIN</span> <span class="o">=</span> <span class="mi">16</span>
+
+<span class="c1"># Configure a delay for requests for the same website (default: 0)</span>
+<span class="n">DOWNLOAD_DELAY</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Set the encoding format for your item exports (this is a good choice but in case you</span>
+<span class="c1"># are working with CJK sites this could need tweaking).</span>
+<span class="n">FEED_EXPORT_ENCODING</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span>
+</pre></div>
+</div>
+<p>In order to extend the scope of this scraper, an obvious focus would be the list of URIs provided in the spider to get the job running. Here we just use one URI, which acts as a “seed” for the spider, from which all the other requests “grow”. But we may have several thousands of URIs to work with. As ever, there are many ways to move forward: these could either requested through repeated calls to the <code class="docutils literal notranslate"><span class="pre">scrapy.Request()</span></code> constructor, they could be provided as command-line arguments to the command that starts the crawl, or they could be retrieved from a global queue of URIs to process. These topics are out of scope for today, but I hope that you now have enough of an interest in Scrapy to continue exploring!</p>
 </section>
 </section>
 
